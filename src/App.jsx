@@ -89,7 +89,17 @@ function App() {
                 borderWidth: 1,
             }
         ]
-}
+  }
+  
+  //set background-color for cards
+  const backgroundColors = [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(255, 205, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+  ];
 
 //const colors = ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
 
@@ -98,9 +108,9 @@ function App() {
       <h2>Conteúdo</h2>
       <Row xs={1} md={3} className="g-4 justify-content-center">  
         {
-          content && content.map(category => (
+          content && content.map((category, index )=> (
             <Col key={category.name} className='d-flex justify-content-between align-items-stretch'>
-              <Card style={{ width: '100%', background: 'rgba(54, 162, 235, 0.2)'}}>
+              <Card style={{ width: '100%', background: backgroundColors[index % backgroundColors.length]}}>
               <Card.Body>
                   <Card.Title style={{ fontWeight: 700 }}>{category.name}</Card.Title>
                   {
