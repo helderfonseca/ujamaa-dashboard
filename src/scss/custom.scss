@@ -1,0 +1,27 @@
+// Default variable overrides
+$body-bg: #fff;
+$body-color: #4b4b4b;
+
+$primary: #016459;
+$danger: #ff4136;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p.card-text {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.btn {
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 20px;
+  line-height: 0;
+  border: none;
+}
