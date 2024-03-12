@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import classes from './styles/App.module.scss'
 import { fetchCategoriesNCandidates } from './utils/http'
 import { BarChart } from './components/BarChart'
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { 
     Chart as ChartJS,
     CategoryScale,
@@ -26,7 +26,7 @@ ChartJS.register(
 function App() {
   const [content, setContent] = useState([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     async function getData(){
       const fetchedData = await fetchCategoriesNCandidates();
       setContent(fetchedData);
