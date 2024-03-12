@@ -33,6 +33,10 @@ function App() {
       //console.log(fetchedData);
     }
     getData();
+
+    return () => {
+      setContent(() => []);
+    }
   }, [])
 
   // Candidates Label
@@ -101,8 +105,6 @@ function App() {
     'rgba(153, 102, 255, 0.2)',
   ];
 
-//const colors = ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
-
   return (
     <Container className={classes.content}>
       <h2>Conteúdo</h2>
@@ -110,7 +112,7 @@ function App() {
         {
           content && content.map((category, index )=> (
             <Col key={category.name} className='d-flex justify-content-between align-items-stretch'>
-              <Card style={{ width: '100%', background: backgroundColors[index % backgroundColors.length]}}>
+              <Card style={{ width: '100%', background: backgroundColors[index]}}>
               <Card.Body>
                   <Card.Title style={{ fontWeight: 700 }}>{category.name}</Card.Title>
                   {
