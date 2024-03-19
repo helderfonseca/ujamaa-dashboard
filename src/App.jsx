@@ -1,7 +1,7 @@
 import { Card, Row, Col } from 'react-bootstrap'
 import Container from 'react-bootstrap/Container'
 import classes from './styles/App.module.scss'
-import { fetchCategoriesNCandidates } from './utils/http'
+import { fetchCategoriesNCandidatesFase2 } from './utils/http'
 import { BarChart } from './components/BarChart'
 import { useLayoutEffect, useState } from 'react'
 import { 
@@ -28,7 +28,7 @@ function App() {
 
   useLayoutEffect(() => {
     async function getData(){
-      const fetchedData = await fetchCategoriesNCandidates();
+      const fetchedData = await fetchCategoriesNCandidatesFase2();
       setContent(fetchedData);
       //console.log(fetchedData);
     }
@@ -44,7 +44,7 @@ function App() {
   const labels = labelsArray.reduce((elem1, elem2) => elem1.concat(elem2), []);
 
   // Candidates vote count
-  const voteCountArray = content.map(content => content.candidates.map(candidate => candidate.voteAmount));
+  const voteCountArray = content.map(content => content.candidates.map(candidate => candidate.voteCount));
   const voteData = voteCountArray.reduce((elem1, elem2) => elem1.concat(elem2), []);
   //console.log(voteData);
 
@@ -119,7 +119,7 @@ function App() {
                     category.candidates.map(candidate => (
                         <div key={candidate.id} style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <Card.Text style={{ fontSize: '13px' }}>{candidate.projectName}</Card.Text>
-                            <Card.Text style={{ fontWeight: 700 }}>{candidate.voteAmount}</Card.Text>
+                            <Card.Text style={{ fontWeight: 700 }}>{candidate.voteCount}</Card.Text>
                         </div>
                     ))
                   }
