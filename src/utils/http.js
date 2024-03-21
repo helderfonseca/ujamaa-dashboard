@@ -1,6 +1,6 @@
 export async function fetchCategoriesNCandidatesFase2() {
 
-    const response = await fetch("https://api.ujamaa.com/v1/categoriesNcandidatesFase2");
+    const response = await fetch("https://api.ujamaacv.com/v1/categoriesNcandidatesFase2");
     
     if(!response.ok) {
       const error = new Error('An error occurred while fetching the results!')
